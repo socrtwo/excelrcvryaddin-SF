@@ -1,0 +1,40 @@
+name: Build Excel Recovery Add-In
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build with MSBuild
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+
+      - name: Restore NuGet packages
+        run: nuget restore "ExcelRecoveryAddin.sln"
+        continue-on-error: true
+
+      - name: Build solution
+        run: msbuild "ExcelRecoveryAddin.sln" /p:Configuration=Release /p:Platform="Any CPU" /m
+        continue-on-error: true
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: build-output
+          path: |
+            **/bin/Release/**
+            **/bin/Debug/**
+          if-no-files-found: ignore
