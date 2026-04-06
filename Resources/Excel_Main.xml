@@ -1,0 +1,38 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" onLoad="Ribbon_OnLoad">
+	<ribbon>
+		<tabs>
+			<tab id="ExcelRecoveryAddinTab" label="Excel Recovery Add-in">
+
+				<group id="ExcelRecoveryAddinGroup1" label="General">
+					<button id="Ribbon_Button_SelectFile" size="large" label="Select File" onAction="On_Ribbon_Button_SelectFile_Clicked" getImage="On_Ribbon_Button_SelectFile_GetImage" />
+					<button id="Ribbon_Button_PreviousVersion" size="large" label="Find Previous Versions" onAction="On_Ribbon_Button_PreviousVersion_Clicked" getImage="On_Ribbon_Button_PreviousVersion_GetImage" />
+					<labelControl id="Ribbon_Label_CurrentFile" label="Current File:" />
+					<comboBox id="Ribbon_Combobox_CurrentFile" sizeString="MMMMMMMMMMMMMMMMMM" getItemCount="On_Ribbon_Combobox_CurrentFile_GetItemCount" getItemLabel="On_Ribbon_Combobox_CurrentFile_GetItemLabel" getText="On_Ribbon_Combobox_CurrentFile_GetText" onChange="On_Ribbon_Combobox_CurrentFile_OnChange" />
+				</group>
+
+				<group id="ExcelRecoveryAddinGroup2" label="Data Extraction Methods">
+					<button id="Ribbon_Button_MS_Open_And_Repair" size="normal" label="MS Open and Repair" onAction="On_Ribbon_Button_MS_Open_And_Repair_Clicked" getImage="On_Ribbon_Button_MS_Open_And_Repair_GetImage" />
+					<button id="Ribbon_Button_MS_Open_And_Extract_Data" size="normal" label="MS Open and Extract Data" onAction="On_Ribbon_Button_MS_Open_And_Extract_Data_Clicked" getImage="On_Ribbon_Button_MS_Open_And_Extract_Data_GetImage" />
+					<button id="Ribbon_Button_Non_MS_XLSX_Extract_Data" size="normal" label="Non-MS XLSX Data Extract I" onAction="On_Ribbon_Button_Non_MS_XLSX_Extract_Data_Clicked" getImage="On_Ribbon_Button_Non_MS_XLSX_Extract_Data_GetImage" />
+					<button id="Ribbon_Button_Non_MS_XLSX_Extract_Data_2" size="normal" label="Non-MS XLSX Data Extract II" onAction="On_Ribbon_Button_Non_MS_XLSX_Extract_Data_2_Clicked" getImage="On_Ribbon_Button_Non_MS_XLSX_Extract_Data_2_GetImage" />
+					<button id="Ribbon_Button_Zip_Repair_Try" size="normal" label="ZipRepair-Try for XLS and XLSX" onAction="On_Ribbon_Button_Zip_Repair_Try_Clicked" getImage="On_Ribbon_Button_Zip_Repair_Try_GetImage" />
+					<button id="Ribbon_Button_Excel_Fix" size="normal" label="Cimaware ExcelFix" onAction="On_Ribbon_Button_Excel_Fix_Clicked" getImage="On_Ribbon_Button_Excel_Fix_GetImage" />
+				</group>
+
+				<group id="ExcelRecoveryAddinGroup3" label="Excel Configuration Methods">
+					<button id="Ribbon_Button_SaveAsSYLK" size="normal" label="Save as SYLK File"  onAction="On_Ribbon_Button_SaveAsSYLK_Clicked" getImage="On_Ribbon_Button_SaveAsSYLK_GetImage" />
+					<button id="Ribbon_Button_SaveAsHTML" size="normal" label="Save as HTML" onAction="On_Ribbon_Button_SaveAsHTML_Clicked" getImage="On_Ribbon_Button_SaveAsHTML_GetImage" />
+					<button id="Ribbon_Button_Manual_Calculations" size="normal" label="Manual Calculations" onAction="On_Ribbon_Button_Manual_Calculations_Clicked" getImage="On_Ribbon_Button_Manual_Calculations_GetImage" />
+					<button id="Ribbon_Button_External_References" size="normal" label="External References" onAction="On_Ribbon_Button_External_References_Clicked" getImage="On_Ribbon_Button_External_References_GetImage" />
+					<button id="Ribbon_Button_Safe_Mode" size="normal" label="Open in Safe Mode" onAction="On_Ribbon_Button_Safe_Mode_Clicked" getImage="On_Ribbon_Button_Safe_Mode_GetImage" />
+				</group>
+
+				<group id="ExcelRecoveryAddinGroup4" label="Open in External Application Methods">
+					<button id="Ribbon_Button_Open_With_WordPad" label="Open with WordPad" onAction="On_Ribbon_Button_Open_With_WordPad_Clicked" getImage="On_Ribbon_Button_Open_With_WordPad_GetImage" />
+					<button id="Ribbon_Button_Open_With_Excel_Viewer" label="Open with Excel Viewer" onAction="On_Ribbon_Button_Open_With_Excel_Viewer_Clicked" getImage="On_Ribbon_Button_Open_With_Excel_Viewer_GetImage" />
+				</group>
+				
+			</tab>
+		</tabs>
+	</ribbon>
+</customUI>

@@ -1,0 +1,5 @@
+*.exe
+*.msi
+.DS_Store
+Thumbs.db
+.vs/
