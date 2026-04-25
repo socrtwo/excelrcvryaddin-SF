@@ -1,5 +1,10 @@
 # Excel Recovery Add-In
 
+<!--PAGES_LINK_BANNER-->
+> 🌐 **Live page:** [https://socrtwo.github.io/excelrcvryaddin-SF/](https://socrtwo.github.io/excelrcvryaddin-SF/)  
+> 📦 **Releases:** [github.com/socrtwo/excelrcvryaddin-SF/releases](https://github.com/socrtwo/excelrcvryaddin-SF/releases)
+<!--/PAGES_LINK_BANNER-->
+
 A Microsoft Excel add-in that adds recovery buttons directly into the Excel ribbon. Provides one-click access to recovery tools without leaving Excel.
 
 ## Screenshots
