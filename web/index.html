@@ -101,6 +101,15 @@
     <p id="desc"></p>
     <nav class="links" id="links"></nav>
   </header>
+  <section class="card" id="s2-identify" style="margin-bottom:36px">
+    <h2>Identify a corrupt file <small style="font-weight:400;font-size:0.75em;color:rgba(245,243,255,0.6)">(free, runs in your browser — nothing is uploaded)</small></h2>
+    <p>Not sure what a damaged file really is? Choose it below. The S2 File Identifier reads
+      its magic numbers, separates any concatenated or embedded files, offers each piece for
+      download, and recommends which S2 recovery program can repair it — all locally in your
+      browser.</p>
+    <p><input type="file" id="s2-identify-input" aria-label="Choose a file to identify"></p>
+    <div id="s2-identify-result"></div>
+  </section>
   <main class="card" id="readme">
     <p class="loading">Fetching README…</p>
   </main>
@@ -168,6 +177,25 @@
   } else {
     readmeEl.innerHTML = '<p class="loading">No README found in this repository.</p>';
   }
+})();
+</script>
+<script src="s2-file-id.js"></script>
+<script>
+(function () {
+  var input = document.getElementById('s2-identify-input');
+  var result = document.getElementById('s2-identify-result');
+  input.addEventListener('change', async function () {
+    var file = input.files && input.files[0];
+    if (!file) return;
+    result.textContent = 'Analyzing ' + file.name + '\u2026';
+    try {
+      var buf = await file.arrayBuffer();
+      var report = S2FileID.analyze(buf, { programKey: 'excelrcvryaddin', fileName: file.name });
+      S2FileID.renderPanel(result, report);
+    } catch (err) {
+      result.textContent = 'Could not analyze this file: ' + (err && err.message ? err.message : err);
+    }
+  });
 })();
 </script>
 </body>
