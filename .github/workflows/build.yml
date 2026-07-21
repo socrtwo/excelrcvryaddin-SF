@@ -8,7 +8,35 @@ on:
   workflow_dispatch:
 
 jobs:
+  web:
+    name: PWA — lint & smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Syntax-check JS
+        run: |
+          for f in web/recovery.js web/immortal-inflate.js web/s2-file-id.js web/sw.js; do
+            node --check "$f"
+            echo "OK $f"
+          done
+
+      - name: Recovery engine smoke test
+        run: node scripts/test-recovery.mjs
+
+      - name: Build release bundles (dry run)
+        run: bash scripts/build-releases.sh vCI-test
+
   build:
+    # Legacy VB.NET COM add-in. Best-effort: the project targets old
+    # .NET Framework + Office interop assemblies that GitHub runners do not
+    # ship, so failures here are non-blocking (continue-on-error).
     name: Build with MSBuild
     runs-on: windows-latest
     steps:
